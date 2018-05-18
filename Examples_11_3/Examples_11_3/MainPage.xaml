@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="Examples_11_3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Examples_11_3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel x:Name="ContentPanel" Margin="12 0 12 0">
+        <TextBlock FontSize="25" Name="textBlock1" Text="半径根据slider值改变"/>
+        <Slider Name="slider" Value="50" Maximum="400"/>
+        <TextBlock FontSize="25" Name="textBlock2" Text="半径为："/>
+        <TextBlock Name="txtblk" FontSize="48" 
+                   Text="{Binding ElementName=slider,Path=Value}"/>
+        <Ellipse Height="{Binding ElementName=slider,Path=Value}"
+                 Width="{Binding ElementName=slider,Path=Value}"
+                 Fill="Pink" Name="ellipse1" Stroke="Blue"
+                 StrokeThickness="1"/>
+    </StackPanel>
+</Page>

@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="Example11_5.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Example11_5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <!---设置数据转换器-->
+    <Page.Resources>
+        <local:Clock x:Name="clock"/>
+        <local:HoursToDayStringConverter x:Key="booleanToDayString"/>
+    </Page.Resources>
+
+    <StackPanel x:Name="ContentPanel" Margin="12 0 12 0" DataContext="{StaticResource clock}">
+        <TextBlock FontSize="30" Text="{Binding Hour,Converter={StaticResource booleanToDayString} }"/>
+
+        <TextBlock FontSize="30" Text="现在的时间是："/>
+        <TextBlock FontSize="20" Text="{Binding Hour}"/>
+        <TextBlock FontSize="20" Text="小时"/>
+        <TextBlock FontSize="20" Text="{Binding Minute}"/>
+        <TextBlock FontSize="20" Text="分钟"/>
+        <TextBlock FontSize="20" Text="{Binding Second}"/>
+        <TextBlock FontSize="20" Text="秒"/>
+    </StackPanel>
+</Page>
